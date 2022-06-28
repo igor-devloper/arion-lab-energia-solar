@@ -22,7 +22,7 @@ export function Login() {
         password,
       }
     })
-    navigate('/login')
+    navigate('/event')
   }
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col">

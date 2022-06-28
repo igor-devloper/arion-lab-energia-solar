@@ -21,7 +21,7 @@ export function Subscribe() {
         password,
       }
     })
-    navigate('/event')
+    navigate('/login')
   }
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col">
