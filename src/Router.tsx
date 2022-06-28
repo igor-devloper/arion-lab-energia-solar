@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { Event } from "./pages/Event";
+import { Login } from "./pages/Login";
 import { Subscribe } from "./pages/Subscribe";
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Subscribe />}/>
+      <Route path="/" element={<Subscribe/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/event" element={<Event/>}/>
       <Route path="/event/lesson/:slug" element={<Event/>}/>
     </Routes>

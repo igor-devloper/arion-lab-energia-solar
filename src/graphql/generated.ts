@@ -4158,6 +4158,7 @@ export type Subscriber = Node & {
   /** The unique identifier */
   id: Scalars['ID'];
   name: Scalars['String'];
+  password: Scalars['String'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -4232,6 +4233,7 @@ export type SubscriberCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   email: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -4341,6 +4343,25 @@ export type SubscriberManyWhereInput = {
   name_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   name_starts_with?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  password_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  password_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  password_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  password_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  password_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  password_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  password_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  password_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  password_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -4387,6 +4408,8 @@ export enum SubscriberOrderByInput {
   IdDesc = 'id_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
+  PasswordAsc = 'password_ASC',
+  PasswordDesc = 'password_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -4396,6 +4419,7 @@ export enum SubscriberOrderByInput {
 export type SubscriberUpdateInput = {
   email?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
 };
 
 export type SubscriberUpdateManyInlineInput = {
@@ -4417,6 +4441,7 @@ export type SubscriberUpdateManyInlineInput = {
 
 export type SubscriberUpdateManyInput = {
   name?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
 };
 
 export type SubscriberUpdateManyWithNestedWhereInput = {
@@ -4545,6 +4570,25 @@ export type SubscriberWhereInput = {
   name_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   name_starts_with?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  password_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  password_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  password_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  password_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  password_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  password_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  password_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  password_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  password_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -5568,13 +5612,14 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
-export type CreateSubscriberMutationVariables = Exact<{
+export type CreateSubscribeMutationVariables = Exact<{
   name: Scalars['String'];
   email: Scalars['String'];
+  password: Scalars['String'];
 }>;
 
 
-export type CreateSubscriberMutation = { __typename?: 'Mutation', createSubscriber?: { __typename?: 'Subscriber', name: string } | null };
+export type CreateSubscribeMutation = { __typename?: 'Mutation', createSubscriber?: { __typename?: 'Subscriber', name: string } | null };
 
 export type GetLessonBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
@@ -5589,40 +5634,41 @@ export type GetLessonQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetLessonQuery = { __typename?: 'Query', lessons: Array<{ __typename?: 'Lesson', id: string, slug: string, title: string, availableAt?: any | null, lessonType: LessonType }> };
 
 
-export const CreateSubscriberDocument = gql`
-    mutation CreateSubscriber($name: String!, $email: String!) {
-  createSubscriber(data: {name: $name, email: $email}) {
+export const CreateSubscribeDocument = gql`
+    mutation CreateSubscribe($name: String!, $email: String!, $password: String!) {
+  createSubscriber(data: {name: $name, email: $email, password: $password}) {
     name
   }
 }
     `;
-export type CreateSubscriberMutationFn = Apollo.MutationFunction<CreateSubscriberMutation, CreateSubscriberMutationVariables>;
+export type CreateSubscribeMutationFn = Apollo.MutationFunction<CreateSubscribeMutation, CreateSubscribeMutationVariables>;
 
 /**
- * __useCreateSubscriberMutation__
+ * __useCreateSubscribeMutation__
  *
- * To run a mutation, you first call `useCreateSubscriberMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateSubscriberMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useCreateSubscribeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSubscribeMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [createSubscriberMutation, { data, loading, error }] = useCreateSubscriberMutation({
+ * const [createSubscribeMutation, { data, loading, error }] = useCreateSubscribeMutation({
  *   variables: {
  *      name: // value for 'name'
  *      email: // value for 'email'
+ *      password: // value for 'password'
  *   },
  * });
  */
-export function useCreateSubscriberMutation(baseOptions?: Apollo.MutationHookOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>) {
+export function useCreateSubscribeMutation(baseOptions?: Apollo.MutationHookOptions<CreateSubscribeMutation, CreateSubscribeMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateSubscriberMutation, CreateSubscriberMutationVariables>(CreateSubscriberDocument, options);
+        return Apollo.useMutation<CreateSubscribeMutation, CreateSubscribeMutationVariables>(CreateSubscribeDocument, options);
       }
-export type CreateSubscriberMutationHookResult = ReturnType<typeof useCreateSubscriberMutation>;
-export type CreateSubscriberMutationResult = Apollo.MutationResult<CreateSubscriberMutation>;
-export type CreateSubscriberMutationOptions = Apollo.BaseMutationOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>;
+export type CreateSubscribeMutationHookResult = ReturnType<typeof useCreateSubscribeMutation>;
+export type CreateSubscribeMutationResult = Apollo.MutationResult<CreateSubscribeMutation>;
+export type CreateSubscribeMutationOptions = Apollo.BaseMutationOptions<CreateSubscribeMutation, CreateSubscribeMutationVariables>;
 export const GetLessonBySlugDocument = gql`
     query GetLessonBySlug($slug: String) {
   lesson(where: {slug: $slug}) {
