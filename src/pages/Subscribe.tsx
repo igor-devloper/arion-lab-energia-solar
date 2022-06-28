@@ -60,7 +60,7 @@ export function Subscribe() {
       </div >
       
       
-      <img src="/src/assets/image.png" alt="" className="mt-10 max-w-[1099px] max-h-[1099px] mx-auto" />
+      <img src="https://cdn.discordapp.com/attachments/886812975254634528/991234925518929930/unknown.png" alt="" className="mt-10 max-w-[1099px] max-h-[1099px] mx-auto" />
     </div>
   )
 }
