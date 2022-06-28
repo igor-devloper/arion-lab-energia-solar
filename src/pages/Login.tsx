@@ -15,13 +15,7 @@ export function Login() {
 
   async function handleSubscribe(event: FormEvent) {
     event.preventDefault();
-    await createLogin({
-      variables: {
-        name,
-        email,
-        password,
-      }
-    })
+    
     navigate('/event')
   }
   return (
@@ -37,7 +31,7 @@ export function Login() {
       <div className="w-full flex items-start justify-center p-8 gap-3 absolute mt-56">
         <div className="p-8 bg-gray-700 border border-gray-500 rounded items-center justify-center">
           <strong className="text-2xl mb-6 block">Entrar no On-Boarding</strong>
-          <form  className="flex flex-col gap-2 w-full">
+          <form onSubmit={handleSubscribe} className="flex flex-col gap-2 w-full">
             <input
               {...register('email')}
               className="bg-gray-900 rounded h-14 px-5"
