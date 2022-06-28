@@ -15,7 +15,6 @@ export function Login() {
 
   async function handleSubscribe(event: FormEvent) {
     event.preventDefault();
-    
     navigate('/event')
   }
   return (
