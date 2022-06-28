@@ -52,7 +52,7 @@ export function Subscribe() {
             />  
             <input
               className="bg-gray-900 rounded h-14 px-5"
-              type="email"
+              type="password"
               placeholder="Crie uma senha"
               onChange={event => setPassword(event.target.value)}
             />
