@@ -1,15 +1,14 @@
 import { useState, FormEvent } from "react";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import { useCreateSubscribeMutation } from "../graphql/generated";
 
 export function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate()
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
   const [createLogin, { loading }] = useCreateSubscribeMutation()
 
@@ -32,7 +31,6 @@ export function Login() {
           <strong className="text-2xl mb-6 block">Entrar no On-Boarding</strong>
           <form onSubmit={handleSubscribe} className="flex flex-col gap-2 w-full">
             <input
-              {...register('email')}
               className="bg-gray-900 rounded h-14 px-5"
               name="email"
               typeof="Email"
@@ -42,7 +40,6 @@ export function Login() {
               placeholder="Email address"
             />
             <input
-              {...register('password')}  
               className="bg-gray-900 rounded h-14 px-5"
               type="password"
               name="password"
@@ -64,6 +61,7 @@ export function Login() {
 
       <img 
         src="https://cdn.discordapp.com/attachments/886812975254634528/991247224040333382/unknown.png"  className="mt-[50px] max-w-[1099px] max-h-[1099px] mx-auto " />
+      <Footer/>
     </div>
   )
 }

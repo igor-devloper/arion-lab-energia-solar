@@ -1,5 +1,0 @@
-mutation CreateSubscribe($name: String!, $email: String!, $password: String!) {
-  createSubscriber(data: {name: $name, email: $email, password: $password}) {
-    name
-  }
-}

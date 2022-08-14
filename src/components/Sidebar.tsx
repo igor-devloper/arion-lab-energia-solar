@@ -1,5 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
-import { useGetLessonBySlugLazyQuery, useGetLessonQuery } from "../graphql/generated";
+import {  useGetLessonQuery } from "../graphql/generated";
 import { Lesson } from "./Lesson";
 
 export function Sidebar() {

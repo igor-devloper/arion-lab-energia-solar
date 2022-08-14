@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import { useCreateSubscribeMutation } from "../graphql/generated";
 
@@ -21,7 +22,7 @@ export function Subscribe() {
         password,
       }
     })
-    navigate('/login')
+    navigate('/event')
   }
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col">
@@ -69,6 +70,8 @@ export function Subscribe() {
 
 
       <img src="https://cdn.discordapp.com/attachments/886812975254634528/991234925518929930/unknown.png" alt="" className="mt-10 max-w-[1099px] max-h-[1099px] mx-auto" />
+      <Footer/>
     </div>
+    
   )
 }

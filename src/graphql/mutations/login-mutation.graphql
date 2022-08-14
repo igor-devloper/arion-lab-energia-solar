@@ -1,0 +1,5 @@
+mutation CreateLogin($name: String!, $email: String!, $password: String!) {
+  Login(data: {name: $name, email: $email, password: $password}) {
+    name
+  }
+}
